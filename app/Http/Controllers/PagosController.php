@@ -14,7 +14,7 @@ class PagosController extends Controller
     public function index()
     {
         //
-        return view('pagos.index');
+        return view('pagos.pagos-index');
     }
 
     /**

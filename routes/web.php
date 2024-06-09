@@ -12,6 +12,7 @@ Route::get('/empleados/reporte', [EmpleadosController::class, 'indexReporte'])->
 
 Route::get('/estudiantes/gestion', [EstudiantesController::class, 'indexGestion'])->name('gestion-estudiantes');
 Route::get('/estudiantes/reporte', [EstudiantesController::class, 'indexReporte'])->name('reporte-estudiantes');
+Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes.store');
 
 Route::get('/pagos/index', [PagosController::class, 'index'])->name('index-pagos');
 

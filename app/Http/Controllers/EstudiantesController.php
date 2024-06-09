@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Estudiante;
+use App\Models\Tutor;
+use App\Models\Curso;
+
 class EstudiantesController extends Controller
 {
     /**
@@ -14,7 +18,14 @@ class EstudiantesController extends Controller
     public function indexGestion()
     {
         //
-        return view('estudiantes.gestion-estudiantes');
+          // Obtener todos los tutores y cursos para el formulario
+        $tutores = Tutor::all();
+        $cursos = Curso::all();
+
+        dump($cursos);
+        
+      
+        return view('estudiantes.gestion-estudiantes', compact('tutores', 'cursos'));
     }
 
     public function indexReporte()
@@ -31,6 +42,7 @@ class EstudiantesController extends Controller
     public function create()
     {
         //
+       
     }
 
     /**
@@ -42,6 +54,29 @@ class EstudiantesController extends Controller
     public function store(Request $request)
     {
         //
+        // Validar los datos del formulario
+        $request->validate([
+            'nombre' => 'required|string|max:30',
+            'apellido' => 'required|string|max:30',
+            'Codigo' => 'required|string|max:8|unique:estudiantes',
+            'id_tutor' => 'required|exists:tutor,id_tutor',
+            'id_curso' => 'required|exists:curso,id_curso',
+        ]);
+
+        // Crear un nuevo estudiante
+        $estudiante = new Estudiante([
+            'nombre' => $request->input('nombre'),
+            'apellido' => $request->input('apellido'),
+            'Codigo' => $request->input('Codigo'),
+            'id_tutor' => $request->input('id_tutor'),
+            'id_curso' => $request->input('id_curso'),
+        ]);
+
+        // Guardar el estudiante en la base de datos
+        $estudiante->save();
+
+        // Redirigir a una página de éxito o a la lista de estudiantes
+        return redirect()->route('estudiantes.indexGestion')->with('success', 'Estudiante registrado exitosamente');
     }
 
     /**
