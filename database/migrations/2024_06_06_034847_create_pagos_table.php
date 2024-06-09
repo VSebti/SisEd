@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pagos', function (Blueprint $table) {
-            $table->id('id_pago');
+            $table->id('id_pago') ;
             $table->integer('id_estudiante')->nullable();
             $table->decimal('monto', 8, 2)->nullable();
             $table->date('fecha_pago')->nullable();

@@ -59,12 +59,7 @@
                                 <td>{{ $estudiante->curso->curso }}</td>
                                 <td>
                                     <!-- Botones de acción -->
-                                    <a href="{{ route('estudiantes.edit', $estudiante->id_estudiante) }}" class="btn btn-warning btn-sm">Editar</a>
-                                    <form action="{{ route('estudiantes.destroy', $estudiante->id_estudiante) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                         @endforeach
