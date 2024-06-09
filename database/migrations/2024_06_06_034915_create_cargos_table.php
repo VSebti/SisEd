@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cargos', function (Blueprint $table) {
             $table->integer('id_cargo')->primary();
             $table->string('cargo', 15)->nullable();
+            $table->timestamps();
         });
     }
 

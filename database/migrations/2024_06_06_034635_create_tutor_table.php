@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('apellido', 30)->nullable();
             $table->tinyText('Email')->nullable();
             $table->integer('Telefono')->nullable();
+            $table->timestamps();
         });
     }
 

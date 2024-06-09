@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('apellido', 30)->nullable();
             $table->date('Fecha_contratacion')->nullable();
             $table->integer('id_cargo')->nullable();
+            $table->timestamps();
 
             $table->foreign('id_cargo')->references('id_cargo')->on('cargos')->onDelete('cascade');
         });

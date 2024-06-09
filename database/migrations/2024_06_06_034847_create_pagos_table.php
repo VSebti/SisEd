@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('monto', 8, 2)->nullable();
             $table->date('fecha_pago')->nullable();
             $table->string('Estado_pago', 1)->nullable();
+            $table->timestamps();
 
             $table->foreign('id_estudiante')->references('id_estudiante')->on('estudiantes')->onDelete('cascade');
         });

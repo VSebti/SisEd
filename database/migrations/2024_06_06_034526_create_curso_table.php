@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('curso', function (Blueprint $table) {
             $table->integer('id_curso')->primary();
             $table->integer('curso')->nullable();
+            $table->timestamps();
         });
     }
 

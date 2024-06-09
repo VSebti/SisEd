@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('id_empleado')->nullable();
             $table->decimal('monto', 8, 2)->nullable();
             $table->date('fecha_pago')->nullable();
+            $table->timestamps();
 
             $table->foreign('id_empleado')->references('id_empleado')->on('empleados')->onDelete('cascade');
         });

@@ -21,11 +21,13 @@ class EstudiantesController extends Controller
           // Obtener todos los tutores y cursos para el formulario
         $tutores = Tutor::all();
         $cursos = Curso::all();
+        $estudiantes = Estudiante::all();
 
-        dump($cursos);
+
         
-      
-        return view('estudiantes.gestion-estudiantes', compact('tutores', 'cursos'));
+        //dd($cursos, $estudiantes, $tutores);
+
+        return view('estudiantes.gestion-estudiantes', compact('tutores', 'cursos', 'estudiantes'));
     }
 
     public function indexReporte()
@@ -58,7 +60,7 @@ class EstudiantesController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:30',
             'apellido' => 'required|string|max:30',
-            'Codigo' => 'required|string|max:8|unique:estudiantes',
+            'codigo' => 'required|string|max:8|unique:estudiantes',
             'id_tutor' => 'required|exists:tutor,id_tutor',
             'id_curso' => 'required|exists:curso,id_curso',
         ]);
@@ -67,7 +69,7 @@ class EstudiantesController extends Controller
         $estudiante = new Estudiante([
             'nombre' => $request->input('nombre'),
             'apellido' => $request->input('apellido'),
-            'Codigo' => $request->input('Codigo'),
+            'codigo' => $request->input('codigo'),
             'id_tutor' => $request->input('id_tutor'),
             'id_curso' => $request->input('id_curso'),
         ]);

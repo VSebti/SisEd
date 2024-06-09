@@ -17,9 +17,10 @@ return new class extends Migration
             $table->integer('id_estudiante')->primary();
             $table->string('nombre', 30)->nullable();
             $table->string('apellido', 30)->nullable();
-            $table->string('Codigo', 8)->nullable();
+            $table->string('codigo', 8)->nullable();
             $table->integer('id_tutor')->nullable();
             $table->integer('id_curso')->nullable();
+            $table->timestamps();
 
             $table->foreign('id_tutor')->references('id_tutor')->on('tutor')->onDelete('cascade');
             $table->foreign('id_curso')->references('id_curso')->on('curso')->onDelete('cascade');
