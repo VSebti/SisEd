@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('curso', function (Blueprint $table) {
             $table->id('id_curso') ;
             $table->integer('curso')->nullable();
+            $table->string('paralelo')->default('A');
             $table->timestamps();
         });
     }
