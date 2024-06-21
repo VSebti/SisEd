@@ -17,13 +17,26 @@
           
 
             <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Usuarios</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'gestion-usuarios' ? ' active bg-gradient-primary' : '' }} "
+                    href="{{ route('gestion-usuarios') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Gestion</span>
+                </a>
+            </li>
+
+            <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Estudiantes</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'gestion-estudiantes' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ route('gestion-estudiantes') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">star</i>
+                        <i class="material-icons opacity-10">dashboard</i>
                     </div>
                     <span class="nav-link-text ms-1">Gestion</span>
                 </a>
@@ -35,6 +48,19 @@
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
                     <span class="nav-link-text ms-1">Reportes</span>
+                </a>
+            </li>
+
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Tutores</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'gestion-tutores' ? ' active bg-gradient-primary' : '' }} "
+                    href="{{ route('gestion-tutores') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Gestion</span>
                 </a>
             </li>
 

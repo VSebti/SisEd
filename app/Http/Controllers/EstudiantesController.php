@@ -56,7 +56,7 @@ class EstudiantesController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:30',
             'apellido' => 'required|string|max:30',
-            'codigo' => 'required|string|max:8|unique:estudiantes',
+            'codigo' => 'required|string|max:8|',
             'id_tutor' => 'required|exists:tutor,id_tutor',
             'id_curso' => 'required|exists:curso,id_curso',
         ]);
@@ -74,7 +74,7 @@ class EstudiantesController extends Controller
         $estudiante->save();
 
         // Redirigir a una página de éxito o a la lista de estudiantes
-        return redirect()->route('estudiantes.reporte-estudiantes')->with('success', 'Estudiante registrado exitosamente');
+        return redirect()->route('gestion-estudiantes')->with('success', 'Estudiante registrado exitosamente');
     }
 
     /**
@@ -117,9 +117,9 @@ class EstudiantesController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:30',
             'apellido' => 'required|string|max:30',
-            'codigo' => 'required|string|max:8|unique:estudiantes,codigo,' . $id,
-            'id_tutor' => 'required|exists:tutors,id_tutor',
-            'id_curso' => 'required|exists:cursos,id_curso',
+            'codigo' => 'required|string|max:8|' ,
+            'id_tutor' => 'required|exists:tutor,id_tutor',
+            'id_curso' => 'required|exists:curso,id_curso',
         ]);
 
         $estudiante = Estudiante::findOrFail($id);

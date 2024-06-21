@@ -45,6 +45,11 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="codigo" class="form-label">Codigo</label>
+                            <input type="codigo" class="form-control" id="codigo" name="codigo" value="{{ $estudiante->codigo }}" required>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="id_tutor" class="form-label">Tutor</label>
                             <select class="form-control" id="id_tutor" name="id_tutor">
                                 <option value="" {{ $estudiante->id_tutor == null ? 'selected' : '' }}>Sin Tutor</option>

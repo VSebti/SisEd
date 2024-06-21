@@ -5,20 +5,43 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EstudiantesController;
 use App\Http\Controllers\PagosController; 
+use App\Http\Controllers\UsuariosController;
 
 
 Route::get('/empleados/gestion', [EmpleadosController::class, 'indexGestion'])->name('gestion-empleados');
 Route::get('/empleados/reporte', [EmpleadosController::class, 'indexReporte'])->name('reporte-empleados');
 
+// Rutas para estudiantes
 Route::get('/estudiantes/gestion', [EstudiantesController::class, 'indexGestion'])->name('gestion-estudiantes');
 Route::get('/estudiantes/reporte', [EstudiantesController::class, 'indexReporte'])->name('reporte-estudiantes');
 Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes.store');
 Route::get('/estudiantes/editar/{id}', [EstudiantesController::class, 'edit'])->name('editar-estudiantes');
-
-
 Route::delete('/estudiantes/eliminar/{id}', [EstudiantesController::class, 'destroy'])->name('eliminar-estudiante');
 Route::put('/estudiantes/actualizar/{id}', [EstudiantesController::class, 'update'])->name('actualizar-estudiante');  // Para actualizar un estudiante
 
+
+// Rutas para tutores
+
+Route::get('/tutores/gestion', [EmpleadosController::class, 'index'])->name('gestion-tutores');
+
+ // Rutas para usuarios
+ Route::get('/usuarios', [UsuariosController::class, 'index'])
+    ->name('gestion-usuarios');
+    Route::get('usuarios/nuevo', [UsuariosController::class, 'create'])
+    ->name('nuevo-usuario');
+    Route::get('editar-usuario/{id}', [UsuariosController::class, 'edit'])
+    ->name('editar-usuarios');
+    Route::put('usuarios/actualizar/{id}', [UsuariosController::class, 'update'])
+    ->name('actualizar-usuario');
+    Route::post('usuarios/store', [UsuariosController::class, 'store'])
+    ->name('crear-usuario');
+    Route::delete('usuarios/eliminar/{id}', [UsuariosController::class, 'destroy'])
+    ->name('eliminar-usuario');
+
+
+
+
+//Rutas para pagos
 
 Route::get('/pagos/index', [PagosController::class, 'index'])->name('index-pagos');
 
