@@ -205,15 +205,15 @@ function sidebarType(a) {
     var navbarBrand = document.querySelector('.navbar-brand-img');
     var navbarBrandImg = navbarBrand.src;
 
-    if (navbarBrandImg.includes('logo-ct.png')) {
-      var navbarBrandImgNew = navbarBrandImg.replace("logo-ct", "logo-ct-dark");
+    if (navbarBrandImg.includes('main-logo-HS.png')) {
+      var navbarBrandImgNew = navbarBrandImg.replace("main-logo-HS", "main-logo-HS-dark");
       navbarBrand.src = navbarBrandImgNew;
     }
   } else {
     var navbarBrand = document.querySelector('.navbar-brand-img');
     var navbarBrandImg = navbarBrand.src;
-    if (navbarBrandImg.includes('logo-ct-dark.png')) {
-      var navbarBrandImgNew = navbarBrandImg.replace("logo-ct-dark", "logo-ct");
+    if (navbarBrandImg.includes('main-logo-HS-dark.png')) {
+      var navbarBrandImgNew = navbarBrandImg.replace("main-logo-HS-dark", "main-logo-HS");
       navbarBrand.src = navbarBrandImgNew;
     }
   }
@@ -222,8 +222,8 @@ function sidebarType(a) {
     var navbarBrand = document.querySelector('.navbar-brand-img');
     var navbarBrandImg = navbarBrand.src;
 
-    if (navbarBrandImg.includes('logo-ct.png')) {
-      var navbarBrandImgNew = navbarBrandImg.replace("logo-ct", "logo-ct-dark");
+    if (navbarBrandImg.includes('main-logo-HS.png')) {
+      var navbarBrandImgNew = navbarBrandImg.replace("main-logo-HS", "main-logo-HS-dark");
       navbarBrand.src = navbarBrandImgNew;
     }
   }

@@ -65,8 +65,7 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <!-- Botones de acción -->
-                                            <button class="btn btn-success btn-sm">Editar</button>
-                                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                                            <a href="{{ route('editar-estudiantes', ['id' => $estudiante->id_estudiante]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Editar</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -121,7 +120,11 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </main>
     <x-plugins></x-plugins>
+
+
 </x-layout>

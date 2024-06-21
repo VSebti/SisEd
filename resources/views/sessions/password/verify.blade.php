@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <x-footers.guest></x-footers.guest>
+             
         </div>
     </main>
     @push('js')

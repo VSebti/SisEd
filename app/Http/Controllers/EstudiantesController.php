@@ -22,11 +22,7 @@ class EstudiantesController extends Controller
         $tutores = Tutor::all();
         $cursos = Curso::all();
         $estudiantes = Estudiante::all();
-
-
-        
-        //dd($cursos, $estudiantes, $tutores);
-
+       // dd($estudiantes);
         return view('estudiantes.gestion-estudiantes', compact('tutores', 'cursos', 'estudiantes'));
     }
 
@@ -78,7 +74,7 @@ class EstudiantesController extends Controller
         $estudiante->save();
 
         // Redirigir a una página de éxito o a la lista de estudiantes
-        return redirect()->route('gestion-estudiantes')->with('success', 'Estudiante registrado exitosamente');
+        return redirect()->route('estudiantes.reporte-estudiantes')->with('success', 'Estudiante registrado exitosamente');
     }
 
     /**
@@ -101,6 +97,11 @@ class EstudiantesController extends Controller
     public function edit($id)
     {
         //
+        $estudiante = Estudiante::findOrFail($id);
+        $tutores = Tutor::all();
+        $cursos = Curso::all();
+      
+        return view('estudiantes.editar-estudiante', compact('estudiante', 'tutores', 'cursos'));
     }
 
     /**
@@ -113,6 +114,23 @@ class EstudiantesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nombre' => 'required|string|max:30',
+            'apellido' => 'required|string|max:30',
+            'codigo' => 'required|string|max:8|unique:estudiantes,codigo,' . $id,
+            'id_tutor' => 'required|exists:tutors,id_tutor',
+            'id_curso' => 'required|exists:cursos,id_curso',
+        ]);
+
+        $estudiante = Estudiante::findOrFail($id);
+        $estudiante->nombre = $request->input('nombre');
+        $estudiante->apellido = $request->input('apellido');
+        $estudiante->codigo = $request->input('codigo');
+        $estudiante->id_tutor = $request->input('id_tutor');
+        $estudiante->id_curso = $request->input('id_curso');
+        $estudiante->save();
+
+        return redirect()->route('gestion-estudiantes')->with('success', 'Estudiante actualizado exitosamente');
     }
 
     /**
@@ -124,5 +142,11 @@ class EstudiantesController extends Controller
     public function destroy($id)
     {
         //
+        // Buscar el estudiante por ID y eliminarlo
+        $estudiante = Estudiante::findOrFail($id);
+        $estudiante->delete();
+
+        // Redirigir a la lista de estudiantes con un mensaje de éxito
+        return redirect()->route('gestion-estudiantes')->with('success', 'Estudiante eliminado exitosamente');
     }
 }

@@ -13,6 +13,12 @@ Route::get('/empleados/reporte', [EmpleadosController::class, 'indexReporte'])->
 Route::get('/estudiantes/gestion', [EstudiantesController::class, 'indexGestion'])->name('gestion-estudiantes');
 Route::get('/estudiantes/reporte', [EstudiantesController::class, 'indexReporte'])->name('reporte-estudiantes');
 Route::post('/estudiantes', [EstudiantesController::class, 'store'])->name('estudiantes.store');
+Route::get('/estudiantes/editar/{id}', [EstudiantesController::class, 'edit'])->name('editar-estudiantes');
+
+
+Route::delete('/estudiantes/eliminar/{id}', [EstudiantesController::class, 'destroy'])->name('eliminar-estudiante');
+Route::put('/estudiantes/actualizar/{id}', [EstudiantesController::class, 'update'])->name('actualizar-estudiante');  // Para actualizar un estudiante
+
 
 Route::get('/pagos/index', [PagosController::class, 'index'])->name('index-pagos');
 
